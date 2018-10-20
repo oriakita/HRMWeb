@@ -17,7 +17,7 @@
 			}else{
 
 				$_SESSION['username'] = $username;
-                header('Location: index.php');
+                header('Location: home.html');
 			}
 		}
 	}

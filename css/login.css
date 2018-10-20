@@ -4,13 +4,12 @@
 }
 
 body {
-    background-image: url(../images/purple-gradient-background.png);
+    background-image: url(../images/blue-polygon-bg.png);
     background-size: 100%;
 }
 
-.hrmlogo {
-    margin-top: 30px;
-    margin-bottom: 10px;
+.card {
+    margin-top: 70px;
 }
 
 .forgotpass {
