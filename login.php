@@ -18,22 +18,31 @@
                     </div>
                     <div class="card-body">
                     <img class="mx-auto d-block hrmlogo" width="auto" height="150px" src="images/hrmlogo.png" alt="Human Resource Management">
-                        <form action="loginprocess.php" method="post" enctype="multipart/form-data">
+                        <form id="myform" action="" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="">Tài khoản</label>
-                                <input type="text" class="form-control" id="" placeholder="Username" name="username">
+                                <input type="text" class="form-control" id="username" placeholder="Username" name="username">
                             </div>
                             <div class="form-group">
                                 <label for="">Mật khẩu</label>
-                                <input type="password" class="form-control" id="" placeholder="Password" name="password">
+                                <input type="password" class="form-control" id="password" placeholder="Password" name="password">
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="checkbox1">
                                 <label for="" class="form-check-label">Nhớ tài khoản</label>
                                 <label for="" class="forgotpass"><a href="#">Quên mật khẩu</a></label>       
                             </div>
-                                <button class="btn btn-primary" type="submit" name="btn_submit">Đăng nhập</button>
+
+                        
+                                <span class="thongbao">
+                                    <?php include('loginprocess.php')?>
+                                </span>
+                            
+
+                            <input type="submit" value="Đăng nhập" id="btnsubmit" class="btn btn-primary" name="btn_submit">
                         </form>
+
+                        
                     </div>
                 </div>
             </div>
@@ -41,6 +50,7 @@
     </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>
+    
     <script src="bootstrap/js/bootstrap.js"></script>
 </body>
 </html>

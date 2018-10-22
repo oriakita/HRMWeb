@@ -7,13 +7,13 @@
 		$password = $_POST["password"];
 
 		if ($username == "" || $password =="") {
-			echo "username hoặc password bạn không được để trống!";
+			echo "Username hoặc Password bạn không được để trống!";
 		}else{
 			$sql = "select * from users where username = '$username' and password = '$password' ";
 			$query = mysqli_query($conn,$sql);
 			$num_rows = mysqli_num_rows($query);
 			if ($num_rows==0) {
-				echo "tên đăng nhập hoặc mật khẩu không đúng !";
+				echo "Tên đăng nhập hoặc mật khẩu không đúng !";
 			}else{
 
 				$_SESSION['username'] = $username;
