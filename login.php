@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +10,7 @@
     <title>Website quản lý nhân sự</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="css/login.css" type="text/css">
+    <?php include('loginprocess.php');?>
 </head>
 <body>
     <div class="container-fluid">
@@ -35,7 +39,7 @@
 
                         
                                 <span class="thongbao">
-                                    <?php include('loginprocess.php')?>
+                                    <?php echo $thongbao;?>
                                 </span>
                             
 
