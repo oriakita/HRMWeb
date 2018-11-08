@@ -25,22 +25,29 @@
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item username">
+                    <a class="nav-link" href="#">Xin chào <?php echo $_SESSION['username'];?></a>
+                </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">In lương</a>
+                    <a class="nav-link" href="inluong.html">In lương</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">Nhân viên</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Tìm nhân viên</a>
-                        <a class="dropdown-item" href="#">Chấm công</a>
+                        <a class="dropdown-item" href="timnhanvien.html">Tìm nhân viên</a>
+                        <a class="dropdown-item" href="themnhanvien.html">Thêm nhân viên</a>
+                        <a class="dropdown-item" href="chamcong.html">Chấm công</a>
                     </div>
                 </li>
-                <li class="nav-item username">
-                    <a class="nav-link" href="#">Xin chào <?php echo $_SESSION['username'];?></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="quanliphongban.html">Phòng Ban</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tuyendung.html">Tuyển Dụng</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Đăng xuất</a>

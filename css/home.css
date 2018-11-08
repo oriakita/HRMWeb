@@ -4,7 +4,15 @@
 }
 
 body {
-    background-color: #f8f8f8;
+    background-color: #dddddd;
+}
+
+input {
+    color: black;
+}
+
+nav {
+    box-shadow: 1px 1px 15px 0px #aaaaaa;
 }
 
 .active {
@@ -22,9 +30,9 @@ body {
     color: white !important;
 }
 
-
 #carouselExampleIndicators, .card {
     margin: 20px 10px;
+    box-shadow: 1px 1px 15px 0px #aaaaaa;
 }
 
 .carousel-inner{
@@ -47,14 +55,17 @@ body {
 
 .mybulletinboard {
     background-color: #20d2ff;
+    box-shadow: 1px 1px 15px 0px #aaaaaa;
 }
 
 .mybirthdayboard {
     background-color: #2fff8d;
+    box-shadow: 1px 1px 15px 0px #aaaaaa;
 }
 
 .mymessage {
     background-color: #ff5c7f;
+    box-shadow: 1px 1px 15px 0px #aaaaaa;
 }
 
 .card-body .avatar {

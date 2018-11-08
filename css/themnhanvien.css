@@ -1,0 +1,46 @@
+.card-themnhanvien .card-header{
+    color: white;
+}
+
+.card-themnhanvien {
+    width: 1000px;
+    margin: 10px auto;
+    box-shadow: 1px 1px 15px 0px #aaaaaa;
+}
+
+#chucvu, #phongban {
+    width: 300px;
+}
+
+.avatar {
+    width: 350px;
+    height: 300px;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.fa-camera-retro {
+    position: absolute;
+    left: -35px;
+    bottom: 45px;
+    color: gray;
+}
+
+#btnthem {
+    margin-left: 820px;
+    margin-top: 20px;
+}
+
+#manv, #tennv, #chucvu, #phongban, #diachi, #ngaysinh, #sdt {
+    color: black;
+}
+
+#loadimages {
+    display: none;
+}
+
+#loadimages + label {
+    cursor: pointer;
+}

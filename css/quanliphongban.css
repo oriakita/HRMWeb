@@ -1,0 +1,32 @@
+.card-quanliphongban .card-header{
+    color: white;
+}
+
+.card-quanliphongban {
+    width: 1000px;
+    margin: 10px auto;
+    box-shadow: 1px 1px 15px 0px #aaaaaa;
+}
+
+#table-phongban {
+    width: 90%;
+    margin: 20px auto;
+}
+
+#btnThemPB {
+    margin-left: 750px;
+}
+
+.div-themphongban {
+    margin-left: 50px;
+}
+
+#btnThemPhongBan {
+    position: absolute;
+    left: 700px;
+    bottom: 20px;
+}
+
+.modal-body .row {
+    margin-top: 10px;
+}

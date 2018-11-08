@@ -1,0 +1,38 @@
+.card-chamcong .card-header{
+    color: white;
+}
+
+.card-chamcong {
+    width: 1000px;
+    margin: 10px auto;
+    box-shadow: 1px 1px 15px 0px #aaaaaa;
+}
+
+.card-body h5 {
+    margin: 0 auto;
+}
+
+.div-select-pb {
+    margin-left: 50px;
+}
+
+.input-number {
+    width: 70px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 5px;
+}
+
+.div-chamcong {
+    margin: 30px auto;
+    width: 90%;
+}
+
+#table-chamcong {
+    border: 1px solid #c2c2c2;
+}
+
+#btnNhapLuong {
+    margin-left: 800px;
+}

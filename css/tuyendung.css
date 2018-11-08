@@ -1,0 +1,18 @@
+.card-header{
+    color: white;
+}
+
+.card-quanlituyendung {
+    width: 1000px;
+    margin: 10px auto;
+    box-shadow: 1px 1px 15px 0px #aaaaaa;
+}
+
+#table-tuyendung {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.card-body input {
+    color: black;
+}

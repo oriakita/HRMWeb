@@ -16,6 +16,7 @@
 				$thongbao= "Tên đăng nhập hoặc mật khẩu không đúng !";
 			}else{
 
+				session_start();
 				$_SESSION['username'] = $username;
                 header('location: ./home.php');
 			}
