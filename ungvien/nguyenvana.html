@@ -33,10 +33,20 @@
                         <?php echo $_SESSION['username'];?></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="../home.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="inluong.html">In lương</a>
+                    <a class="nav-link" href="../inluong.html">In lương</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">Nhân viên</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="../timnhanvien.html">Tìm nhân viên</a>
+                        <a class="dropdown-item" href="../themnhanvien.html">Thêm nhân viên</a>
+                        <a class="dropdown-item" href="../chamcong.html">Chấm công</a>
+                       
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
@@ -45,16 +55,17 @@
                         <a class="dropdown-item" href="timnhanvien.html">Tìm nhân viên</a>
                         <a class="dropdown-item" href="themnhanvien.html">Thêm nhân viên</a>
                         <a class="dropdown-item" href="chamcong.html">Chấm công</a>
+                        <a class="dropdown-item" href="thanhtich.html">Đánh giá thành tích</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="quanliphongban.html">Phòng Ban</a>
+                    <a class="nav-link" href="../quanliphongban.html">Phòng Ban</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="tuyendung.html">Tuyển Dụng</a>
+                    <a class="nav-link" href="../tuyendung.html">Tuyển Dụng</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Đăng xuất</a>
+                    <a class="nav-link" href="../index.html">Đăng xuất</a>
                 </li>
             </ul>
 
@@ -126,9 +137,9 @@
         </div>
     </div>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
 </body>
 
 </html>

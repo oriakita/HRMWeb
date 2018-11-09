@@ -11,15 +11,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chấm công</title>
-    <link rel="stylesheet" href="fontawesome-free-5.5.0-web/css/all.css" type="text/css">
+    <title>Đánh giá thành tích</title>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/home.css" />
-    <link rel="stylesheet" href="css/chamcong.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/chamcong.css">
 </head>
 
 <body>
-    <!-- -->
     <nav class="navbar navbar-expand-md navbar-light bg-primary">
         <a class="navbar-brand" href="home.html"><img src="images/logobar.png" width="100" height="40"></a>
         <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
@@ -65,30 +63,15 @@
             </form>
         </div>
     </nav>
-    <!-- KẾT THÚC NAVBAR -->
-
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="card card-chamcong">
+            <div class="card card-thanhtich">
                 <h5 class="card-header bg-primary">
-                    Chấm công nhân viên
+                    Đánh giá thành tích
                 </h5>
                 <div class="card-body">
                     <div class="row">
-                        <h5>Tháng 10</h5>
-                    </div>
-                    <div class="row div-select-pb">
-                        <form action="">
-                            <label for="select_phongban">Phòng ban: </label>
-                            <select id="select_phongban" class="form-control">
-                                <option value="mkt">Marketing</option>
-                                <option value="kttc">Kế Toán - Tài Chính</option>
-                                <option value="kd">Kinh Doanh</option>
-                                <option value="ns">Nhân Sự</option>
-                                <option value="kt">Kĩ Thuật</option>
-                                <option value="bgd">Ban Giám Đốc</option>
-                            </select>
-                        </form>
+                        <h5>Năm 2018</h5>
                     </div>
                     <div class="row div-chamcong">
                         <table id="table-chamcong" class="table table-striped">
@@ -96,43 +79,49 @@
                                 <tr class="d-flex">
                                     <th class="col-2">Mã nhân viên</th>
                                     <th class="col-4">Tên nhân viên</th>
-                                    <th class="col-2">Số ngày làm</th>
-                                    <th class="col-2">Ngày tăng ca</th>
-                                    <th class="col-2">Vi phạm</th>
+                                    <th class="col-6" style="text-align: center;">Thành tích</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="d-flex">
                                     <td class="col-2">001</td>
                                     <td class="col-4">Nguyễn Văn A</td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
+                                    <form>
+                                        <td class="col-2"><input type="radio" name="myradio" id="loai1" value="loai1">
+                                            Loại 1</td>
+                                        <td class="col-2"><input type="radio" name="myradio" id="loai2" value="loai2">
+                                            Loại 2</td>
+                                        <td class="col-2"><input type="radio" name="myradio" id="loai3" value="loai3">
+                                            Loại 3</td>
+                                    </form>
                                 </tr>
                                 <tr class="d-flex">
                                     <td class="col-2">001</td>
                                     <td class="col-4">Nguyễn Văn A</td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
+                                    <form>
+                                        <td class="col-2"><input type="radio" name="myradio" id="loai1" value="loai1">
+                                            Loại 1</td>
+                                        <td class="col-2"><input type="radio" name="myradio" id="loai2" value="loai2">
+                                            Loại 2</td>
+                                        <td class="col-2"><input type="radio" name="myradio" id="loai3" value="loai3">
+                                            Loại 3</td>
+                                    </form>
                                 </tr>
                                 <tr class="d-flex">
                                     <td class="col-2">001</td>
                                     <td class="col-4">Nguyễn Văn A</td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                </tr>
-                                <tr class="d-flex">
-                                    <td class="col-2">001</td>
-                                    <td class="col-4">Nguyễn Văn A</td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
+                                    <form>
+                                        <td class="col-2"><input type="radio" name="myradio" id="loai1" value="loai1">
+                                            Loại 1</td>
+                                        <td class="col-2"><input type="radio" name="myradio" id="loai2" value="loai2">
+                                            Loại 2</td>
+                                        <td class="col-2"><input type="radio" name="myradio" id="loai3" value="loai3">
+                                            Loại 3</td>
+                                    </form>
                                 </tr>
                             </tbody>
                         </table>
-                        <button type="submit" class="btn btn-primary" id="btnNhapLuong" name="btnNhapLuong">OK</button>
+                        <button type="submit" class="btn btn-primary" id="btnThanhTich" name="btnThanhTich">OK</button>
                     </div>
                 </div>
             </div>

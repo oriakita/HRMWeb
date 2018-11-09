@@ -1,8 +1,8 @@
-.card-chamcong .card-header{
+.card-header{
     color: white;
 }
 
-.card-chamcong {
+.card-chamcong, .card-thanhtich {
     width: 1000px;
     margin: 10px auto;
     box-shadow: 1px 1px 15px 0px #aaaaaa;
@@ -33,6 +33,6 @@
     border: 1px solid #c2c2c2;
 }
 
-#btnNhapLuong {
+#btnNhapLuong, #btnThanhTich {
     margin-left: 800px;
 }
