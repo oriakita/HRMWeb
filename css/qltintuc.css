@@ -1,0 +1,41 @@
+.card-header{
+    color: white;
+}
+
+.card-dangtin {
+    width: 1000px;
+    margin: 10px auto;
+    box-shadow: 1px 1px 15px 0px #aaaaaa;
+}
+
+#loaitin {
+    width: 200px;
+}
+
+#tieude {
+    color: black;
+    font-weight: 600;
+    font-size: 15pt;
+}
+
+#noidung {
+    color: black;
+}
+
+#hinhanh {
+    height: 350px;
+}
+
+#btnDangTin {
+    margin-top: 20px;
+}
+
+#btnTinMoi {
+    margin-bottom: 20px;
+    margin-left: 40px;
+}
+
+.div-qltintuc {
+    width: 95%;
+    margin: auto;
+}

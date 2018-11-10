@@ -11,15 +11,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Thêm nhân viên</title>
-    <link rel="stylesheet" href="fontawesome-free-5.5.0-web/css/all.css" type="text/css">
+    <title>Đăng tin mới</title>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/home.css" />
-    <link rel="stylesheet" href="css/timnhanvien.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/qltintuc.css">
 </head>
 
 <body>
-    <!-- -->
     <nav class="navbar navbar-expand-md navbar-light bg-primary">
         <a class="navbar-brand" href="home.html"><img src="images/logobar.png" width="100" height="40"></a>
         <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
@@ -55,7 +53,7 @@
                     <a class="nav-link" href="tuyendung.html">Tuyển Dụng</a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="qltintuc.html">QL Tin Tức</a>
+                    <a class="nav-link" href="qltintuc.html">QL Tin Tức</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Đăng xuất</a>
@@ -68,26 +66,36 @@
             </form>
         </div>
     </nav>
-    <!-- KẾT THÚC NAVBAR -->
-
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="card card-timnhanvien">
+            <div class="card card-dangtin">
                 <h5 class="card-header bg-primary">
-                    Tra cứu nhân viên
+                    Đăng tin mới
                 </h5>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="box">
-                            <div class="container-1">
-                                <a href="#" class="icon"><i class="fa fa-search"></i></a>
-                                <input type="search" id="search" placeholder="Nhập tên nhân viên" />
-                            </div>
+                    <form action="">
+                        <div class="form-group">
+                            <label for="loaitin">Phân loại tin: </label>
+                            <select name="loaitin" id="loaitin" class="form-control">
+                                <option value="thongbao">Thông báo</option>
+                                <option value="tintuc">Tuyển dụng</option>
+                            </select>
                         </div>
-                    </div>
-                    <div class="row">
-                        <h5>Kết quả tìm kiếm</h5>
-                    </div>
+                        <div class="form-group">
+                            <label for="tieude">Tiêu đề: </label>
+                            <input type="text" id="tieude" name="tieude" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="noidung">Nội dung: </label>
+                            <textarea name="noidung" id="noidung" rows="10" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="uploadanh">Hình ảnh: </label>
+                            <input type="file" name="uploadanh" id="uploadanh" class="form-control">
+                        </div>
+                        <img src="images/company.jpg" alt="" id="hinhanh"><br>
+                        <button type="submit" name="btnDangTin" id="btnDangTin" class="btn btn-primary">Đăng tin</button>
+                    </form>
                 </div>
             </div>
         </div>
