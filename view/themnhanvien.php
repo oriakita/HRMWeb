@@ -2,13 +2,16 @@
     session_start();
     if(!isset($_SESSION['username'])) {
         header('location: ./login.php');
-    } 
+    }
+    
+    include("../model/m_themnhanvien.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Thêm nhân viên</title>
@@ -77,7 +80,7 @@
                     Thêm nhân viên
                 </h5>
                 <div class="card-body">
-                    <form>
+                    <form action="" method="POST" enctype="multipart/form-data">
                         <div class="form-row">
                             <div class="col-5">
                                 <div class="avatar" style="background-image: url(images/avatar.png);">
@@ -85,57 +88,68 @@
                                 </div>
                             </div>
                             <div class="col-1">
-                                <input type="file" class="form-control-file inputfile" id="loadimages">
+                                <input type="file" class="form-control-file inputfile" id="loadimages" name="loadimages">
                                 <label for="loadimages"><i class="fas fa-camera-retro fa-2x"></i></label>
                             </div>
                             <div class="col-6">
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="manv">Mã nhân viên: </label>
-                                    <input type="email" class="form-control" id="manv" placeholder="MA-NV">
+                                    <input type="email" class="form-control" name="manv" id="manv" placeholder="MA-NV">
+                                </div> -->
+                                <div class="form-group">
+                                    <label for="hoten">Họ và tên: </label>
+                                    <input type="text" class="form-control" name="hoten" id="hoten" placeholder="Nguyên Văn A">
                                 </div>
                                 <div class="form-group">
-                                    <label for="tennv">Họ và tên: </label>
-                                    <input type="text" class="form-control" id="tennv" placeholder="Nguyên Văn A">
+                                    <label for="gioitinh">Giới tính: </label>
+                                    <select id="gioitinh" name="gioitinh" class="form-control">
+                                        <option value="m">Nam</option>
+                                        <option value="f">Nữ</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="chucvu">Chức vụ: </label>
-                                    <select id="chucvu" class="form-control">
-                                        <option value="nvvp">Nhân viên văn phòng</option>
-                                        <option value="nvbh">Nhân viên bán hàng</option>
-                                        <option value="tp">Trưởng phòng</option>
-                                        <option value="tk">Thư ký</option>
-                                        <option value="pgd">Phó giám đốc</option>
-                                        <option value="tgd">Tổng giám đốc</option>
+                                    <select id="chucvu" name="chucvu" class="form-control">
+                                        <option value="1">Nhân viên văn phòng</option>
+                                        <option value="2">Nhân viên bán hàng</option>
+                                        <option value="3">Trưởng phòng</option>
+                                        <option value="4">Thư ký</option>
+                                        <option value="5">Phó giám đốc</option>
+                                        <option value="6">Tổng giám đốc</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="phongban">Phòng ban: </label>
-                                    <select id="phongban" class="form-control">
-                                        <option value="mkt">Marketing</option>
-                                        <option value="kttc">Kế Toán - Tài Chính</option>
-                                        <option value="kd">Kinh Doanh</option>
-                                        <option value="ns">Nhân Sự</option>
-                                        <option value="kt">Kĩ Thuật</option>
-                                        <option value="bgd">Ban Giám Đốc</option>
+                                    <select id="phongban" name="phongban" class="form-control">
+                                        <option value="1">Marketing</option>
+                                        <option value="2">Kế Toán - Tài Chính</option>
+                                        <option value="3">Kinh Doanh</option>
+                                        <option value="4">Nhân Sự</option>
+                                        <option value="5">Kĩ Thuật</option>
+                                        <option value="6">Ban Giám Đốc</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="diachi">Địa Chỉ: </label>
-                            <input type="text" class="form-control" id="diachi" placeholder="1234 Tên Đường Thành phố">
+                            <input type="text" class="form-control" name="diachi" id="diachi" placeholder="1234 Tên Đường Thành phố">
                         </div>
                         <div class="form-row">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <label for="ngaysinh">Ngày sinh: </label>
-                                <input type="date" id="ngaysinh" class="form-control">
+                                <input type="date" id="ngaysinh" name="ngaysinh" class="form-control">
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <label for="sdt">Số điện thoại: </label>
                                 <input type="text" name="sdt" id="sdt" class="form-control">
                             </div>
+                            <div class="col-4">
+                                <label for="password">Mật khẩu: </label>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary" name="btnthem" id="btnthem">Thêm nhân viên</button>
+                        <button type="submit" class="btn btn-primary" name="btnThemNV" id="btnthem">Thêm nhân viên</button>
                     </form>
                 </div>
             </div>

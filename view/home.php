@@ -39,7 +39,7 @@
                         aria-expanded="false">Nhân viên</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
                         <a class="dropdown-item" href="timnhanvien.html">Tìm nhân viên</a>
-                        <a class="dropdown-item" href="themnhanvien.html">Thêm nhân viên</a>
+                        <a class="dropdown-item" href="themnhanvien.php">Thêm nhân viên</a>
                         <a class="dropdown-item" href="chamcong.html">Chấm công</a>
                         <a class="dropdown-item" href="thanhtich.html">Đánh giá thành tích</a>
                     </div>

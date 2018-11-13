@@ -1,5 +1,5 @@
 <?php
-    require_once("database.php");
+    include("database.php");
     $thongbao = null;
 	if (isset($_POST["btn_submit"])) {
 		
@@ -9,7 +9,7 @@
 		if ($username == "" || $password =="") {
 			$thongbao = "Username hoặc Password bạn không được để trống!";
 		}else{
-			$sql = "select * from users where username = '$username' and password = '$password' ";
+			$sql = "select * from nhanvien where sdt = '$username' and password = '$password' ";
 			$query = mysqli_query($conn,$sql);
 			$num_rows = mysqli_num_rows($query);
 			if ($num_rows===0) {

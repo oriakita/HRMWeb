@@ -10,7 +10,7 @@
     <title>Website quản lý nhân sự</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="css/login.css" type="text/css">
-    <?php include('loginprocess.php');?>
+    <?php include('../model/loginprocess.php');?>
 </head>
 <body>
     <div class="container-fluid">
