@@ -1,5 +1,13 @@
 <?php
     session_start();
+    include("../controller/user_action.php");
+    $user = new user_action();
+    if (isset($_POST["btn_submit"])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $user->login($username,$password);
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +18,6 @@
     <title>Website quản lý nhân sự</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="css/login.css" type="text/css">
-    <?php include('../model/loginprocess.php');?>
 </head>
 <body>
     <div class="container-fluid">
@@ -39,7 +46,7 @@
 
                         
                                 <span class="thongbao">
-                                    <?php echo $thongbao;?>
+                                    <?php echo $user->thongbao;?>
                                 </span>
                             
 
