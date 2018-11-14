@@ -1,5 +1,5 @@
 <?php
-include("../controller/user_action.php");
+include("../controller/c_user.php");
 
 $user = new user_action();
 $user->logout(); 

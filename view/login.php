@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("../controller/user_action.php");
+    include("../controller/c_user.php");
     $user = new user_action();
     if (isset($_POST["btn_submit"])) {
         $username = $_POST['username'];

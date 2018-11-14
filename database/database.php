@@ -20,11 +20,22 @@
         {
             $this->_sql = $sql;
         }
+
+        public function runQuery() {
+            mysqli_query($this->conn,$this->_sql);
+        }
         
         public function countRows() {
             $query = mysqli_query($this->conn,$this->_sql);
-            return mysqli_num_rows($query);
+            $result = mysqli_num_rows($query);
+            return $result;
         }
+
+        public function loadRowArray() {
+            $query = mysqli_query($this->conn,$this->_sql);
+            return $row = mysqli_fetch_all($query);
+        }
+
     }
     
 ?>

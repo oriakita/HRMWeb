@@ -1,8 +1,22 @@
 <?php
     session_start();
-    if(!isset($_SESSION['username'])) {
+    include("../controller/c_phongban.php");
+    $phongban = new phongban_controller();
+    if(!isset($_SESSION['username'])) 
+    {
         header('location: ./login.php');
-    } 
+    }
+    $mapb = null;
+    $tenpb = null;
+    $truongphong = null;
+    if(isset($_POST['btnThemPhongBan'])) 
+    {
+        $mapb = $_POST['inputMaPhongBan'];
+        $tenpb = $_POST['inputTenPhongBan'];
+        $truongphong = $_POST['inputTruongPhong'];
+        $phongban->themPhongBan($mapb, $tenpb, $truongphong);
+        
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,12 +38,40 @@
     <!-- KẾT THÚC NAVBAR -->
 
     <div class="container-fluid">
+        <div class="row justify-content-center div-message">
+            <?php 
+                $phongban->showMessage();
+            ?>
+        </div>
         <div class="row justify-content-center">
             <div class="card card-quanliphongban">
                 <h5 class="card-header bg-primary">
                     Quản lí phòng ban
                 </h5>
                 <div class="card-body">
+                    <div class="row">
+                        <button type="button" class="btn btn-success" id="btnThemPB">Thêm
+                            Phòng Ban</button>
+                    </div>
+                    <div class="row div-themphongban">
+                        <form action="" method="POST">
+                            <div class="form-row">
+                                <div class="col-2">
+                                    <label for="inputMaPhongBan">Mã PB: </label>
+                                    <input type="text" name="inputMaPhongBan" id="inputMaPhongBan" class="form-control">
+                                </div>
+                                <div class="col-5">
+                                    <label for="inputTenPhongBan">Tên phòng ban: </label>
+                                    <input type="text" name="inputTenPhongBan" id="inputTenPhongBan" class="form-control">
+                                </div>
+                                <div class="col-5">
+                                    <label for="inputTruongPhong">Mã NV trưởng phòng: </label>
+                                    <input type="text" name="inputTruongPhong" id="inputTruongPhong" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-success" id="btnThemPhongBan" name="btnThemPhongBan">OK</button>
+                            </div>
+                        </form>
+                    </div>
                     <div class="row div-phongban">
                         <table id="table-phongban" class="table table-striped">
                             <thead>
@@ -42,92 +84,32 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="d-flex">
-                                    <td class="col-1">PB1</td>
-                                    <td class="col-3">Phòng Marketing</td>
-                                    <td class="col-4">Nguyễn Văn A</td>
-                                    <td class="col-2">22</td>
-                                    <td class="col-2">
-                                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-suaphongban">Sửa</button>
-                                        <button type="button" class="btn btn-danger">Xóa</button>
-                                    </td>
-                                </tr>
-                                <tr class="d-flex">
-                                    <td class="col-1">PB2</td>
-                                    <td class="col-3">Phòng Kế Toán - Tài Chính</td>
-                                    <td class="col-4">Nguyễn Văn B</td>
-                                    <td class="col-2">5</td>
-                                    <td class="col-2">
-                                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-suaphongban">Sửa</button>
-                                        <button type="button" class="btn btn-danger">Xóa</button>
-                                    </td>
-                                </tr>
-                                <tr class="d-flex">
-                                    <td class="col-1">PB3</td>
-                                    <td class="col-3">Phòng Kinh Doanh</td>
-                                    <td class="col-4">Nguyễn Văn C</td>
-                                    <td class="col-2">12</td>
-                                    <td class="col-2">
-                                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-suaphongban">Sửa</button>
-                                        <button type="button" class="btn btn-danger">Xóa</button>
-                                    </td>
-                                </tr>
-                                <tr class="d-flex">
-                                    <td class="col-1">PB4</td>
-                                    <td class="col-3">Phòng Nhân Sự</td>
-                                    <td class="col-4">Nguyễn Văn D</td>
-                                    <td class="col-2">12</td>
-                                    <td class="col-2">
-                                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-suaphongban">Sửa</button>
-                                        <button type="button" class="btn btn-danger">Xóa</button>
-                                    </td>
-                                </tr>
-                                <tr class="d-flex">
-                                    <td class="col-1">PB5</td>
-                                    <td class="col-3">Phòng Kĩ Thuật</td>
-                                    <td class="col-4">Nguyễn Văn E</td>
-                                    <td class="col-2">10</td>
-                                    <td class="col-2">
-                                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-suaphongban">Sửa</button>
-                                        <button type="button" class="btn btn-danger">Xóa</button>
-                                    </td>
-                                </tr>
-                                <tr class="d-flex">
-                                    <td class="col-1">PB6</td>
-                                    <td class="col-3">Ban Giám Đốc</td>
-                                    <td class="col-4">Nguyễn Văn F</td>
-                                    <td class="col-2">3</td>
-                                    <td class="col-2">
-                                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-suaphongban">Sửa</button>
-                                        <button type="button" class="btn btn-danger">Xóa</button>
-                                    </td>
-                                </tr>
+                                <?php 
+                                    $row = $phongban->showPhongBan();
+                                    foreach($row as $value)
+                                    {
+                                        ?>
+                                        <tr class="d-flex">
+                                            <td class="col-1"><?php echo $value['0']?></td>
+                                            <td class="col-3"><?php echo $value['1']?></td>
+                                            <td class="col-4"><?php echo $value['2']?></td>
+                                            <td class="col-2">22</td>
+                                            <td class="col-2">
+                                                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-suaphongban">Sửa</button>
+                                                <button type="button" class="btn btn-danger">Xóa</button>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                    }
+                                    
+                                
+                                ?>
+                                
+                                
                             </tbody>
                         </table>
                     </div>
-                    <div class="row">
-                        <button type="button" class="btn btn-success" id="btnThemPB">Thêm
-                            Phòng Ban</button>
-                    </div>
-                    <div class="row div-themphongban">
-                        <form action="">
-                            <div class="form-row">
-                                <div class="col-2">
-                                    <label for="inputMaPhongBan">Mã PB: </label>
-                                    <input type="text" name="inputMaPhongBan" id="inputMaPhongBan" class="form-control">
-                                </div>
-                                <div class="col-5">
-                                    <label for="inputTenPhongBan">Tên phòng ban: </label>
-                                    <input type="text" name="inputTenPhongBan" id="inputTenPhongBan" class="form-control">
-                                </div>
-                                <div class="col-5">
-                                    <label for="inputTruongPhong">Tên trưởng phòng: </label>
-                                    <input type="text" name="inputTruongPhong" id="inputTruongPhong" class="form-control">
-                                </div>
-                                <button type="submit" class="btn btn-success" id="btnThemPhongBan" name="btnThemPhongBan">OK</button>
-                            </div>
-                        </form>
-                    </div>
+                    
                 </div>
             </div>
         </div>

@@ -23,10 +23,10 @@
 
 #btnThemPhongBan {
     position: absolute;
-    left: 700px;
-    bottom: 20px;
+    left: 800px;
+    top: 140px;
 }
 
-.modal-body .row {
+.modal-body .row, .div-message {
     margin-top: 10px;
 }
