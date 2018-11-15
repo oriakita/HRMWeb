@@ -39,8 +39,8 @@
                                 <input type="password" class="form-control" id="password" placeholder="Password" name="password">
                             </div>
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="checkbox1">
-                                <label for="" class="form-check-label">Nhớ tài khoản</label>
+                                <!-- <input type="checkbox" class="form-check-input" id="checkbox1"> -->
+                                <label for="" class="form-check-label"><a href="index.html">Về trang chủ</a></label>
                                 <label for="" class="forgotpass"><a href="#">Quên mật khẩu</a></label>       
                             </div>
 

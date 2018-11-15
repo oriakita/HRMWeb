@@ -37,12 +37,19 @@
                         <form action="">
                             <label for="select_phongban">Phòng ban: </label>
                             <select id="select_phongban" class="form-control">
-                                <option value="mkt">Marketing</option>
-                                <option value="kttc">Kế Toán - Tài Chính</option>
-                                <option value="kd">Kinh Doanh</option>
-                                <option value="ns">Nhân Sự</option>
-                                <option value="kt">Kĩ Thuật</option>
-                                <option value="bgd">Ban Giám Đốc</option>
+                            <?php 
+                                include("../controller/c_phongban.php");
+                                $phongban = new phongban_controller();
+                                $row = $phongban->showPhongBan();
+                                foreach($row as $value)
+                                {
+                                    ?>
+                                    <option value="<?= $value['0']; ?>"><?= $value['1']; ?></option>
+                                    <?php
+                                }
+                            ?>
+                                
+                                
                             </select>
                         </form>
                     </div>
@@ -50,42 +57,17 @@
                         <table id="table-chamcong" class="table table-striped">
                             <thead>
                                 <tr class="d-flex">
-                                    <th class="col-2">Mã nhân viên</th>
-                                    <th class="col-4">Tên nhân viên</th>
+                                    <th class="col-1">Mã nhân viên</th>
+                                    <th class="col-3">Tên nhân viên</th>
                                     <th class="col-2">Số ngày làm</th>
                                     <th class="col-2">Ngày tăng ca</th>
                                     <th class="col-2">Vi phạm</th>
+                                    <th class="col-1">Tổng tiền</th>
+                                    <th class="col-1">Tính</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr class="d-flex">
-                                    <td class="col-2">001</td>
-                                    <td class="col-4">Nguyễn Văn A</td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                </tr>
-                                <tr class="d-flex">
-                                    <td class="col-2">001</td>
-                                    <td class="col-4">Nguyễn Văn A</td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                </tr>
-                                <tr class="d-flex">
-                                    <td class="col-2">001</td>
-                                    <td class="col-4">Nguyễn Văn A</td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                </tr>
-                                <tr class="d-flex">
-                                    <td class="col-2">001</td>
-                                    <td class="col-4">Nguyễn Văn A</td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                    <td class="col-2"><input class="input-number" type="number"></td>
-                                </tr>
+                            <tbody class="tablebody">
+                                
                             </tbody>
                         </table>
                         <button type="submit" class="btn btn-primary" id="btnNhapLuong" name="btnNhapLuong">OK</button>
@@ -97,6 +79,16 @@
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#select_phongban").change(function(){
+                var id = $("#select_phongban").val();
+                $.post("data.php", {id: id}, function(data){
+                    $(".tablebody").html(data);
+                });                
+            });
+        });
+    </script>
 </body>
 
 </html>

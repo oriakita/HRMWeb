@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2018 at 01:43 AM
+-- Generation Time: Nov 15, 2018 at 05:30 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -63,6 +63,13 @@ CREATE TABLE `luong` (
   `manv` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `luong`
+--
+
+INSERT INTO `luong` (`maluong`, `ngaycong`, `tangca`, `vipham`, `tongtien`, `mathang`, `maphieu`, `manv`) VALUES
+(2, 0, 0, 0.00, 0, 112018, NULL, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -91,7 +98,8 @@ CREATE TABLE `nhanvien` (
 INSERT INTO `nhanvien` (`manv`, `hoten`, `ngaysinh`, `gioitinh`, `diachi`, `sdt`, `macv`, `mapb`, `thanhtich`, `role`, `password`, `avatar`) VALUES
 (1, 'Huỳnh Nhật Hòa', '1997-01-18', 'm', '144/9 P14, Q11, TP.HCM', 987647814, NULL, NULL, '0', 0, '123456', 'images/nhanvien/avatar.png'),
 (6, 'test', '2018-11-08', 'm', '4 ABC', 123456, 2, 3, '0', 1, '123456', 'images/nhanvien/avatar.png'),
-(24, 'Nguyễn Thị A', '1982-12-01', 'f', '122 Cách Mạng Tháng 8, Quận 10, Hồ Chí Minh', 9876, 2, 1, '0', 1, '123', 'images/nhanvien/thaygiao.jpg');
+(24, 'Nguyễn Thị A', '1982-12-01', 'f', '122 Cách Mạng Tháng 8, Quận 10, Hồ Chí Minh', 9876, 2, 1, '0', 1, '123', 'images/nhanvien/thaygiao.jpg'),
+(25, 'Nguyễn Thị Nhỏ', '2018-11-01', 'f', '123 Đường gì', 123, 6, 6, '0', 1, '123', 'images/nhanvien/Cao-Thuy-Linh.png');
 
 -- --------------------------------------------------------
 
@@ -128,7 +136,7 @@ INSERT INTO `phongban` (`MAPB`, `TenPB`, `trphg`) VALUES
 (2, 'Kế Toán - Tài Chính', NULL),
 (3, 'Phòng Kinh Doanh', NULL),
 (4, 'Phòng Nhân Sự', NULL),
-(5, 'Phòng Kĩ Thuật', NULL),
+(5, 'Phòng Kĩ Thuật', 1),
 (6, 'Ban Giám Đốc', NULL);
 
 -- --------------------------------------------------------
@@ -142,6 +150,15 @@ CREATE TABLE `thang` (
   `tenthang` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `thang`
+--
+
+INSERT INTO `thang` (`mathang`, `tenthang`) VALUES
+(102018, 'tháng 10 năm 2018'),
+(112018, 'tháng 11 năm 2018'),
+(122018, 'tháng 12 năm 2018');
+
 -- --------------------------------------------------------
 
 --
@@ -154,8 +171,35 @@ CREATE TABLE `tintuc` (
   `noidung` text COLLATE utf8_unicode_ci NOT NULL,
   `hinhanh` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `ngaydang` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `nguoidang` int(10) DEFAULT NULL
+  `nguoidang` int(10) DEFAULT NULL,
+  `loaitin` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ungvien`
+--
+
+CREATE TABLE `ungvien` (
+  `mauv` int(10) NOT NULL,
+  `hoten` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `ngaysinh` date NOT NULL,
+  `cmnd` int(11) NOT NULL,
+  `gioitinh` enum('m','f') COLLATE utf8_unicode_ci NOT NULL,
+  `diachi` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `sdt` int(11) NOT NULL,
+  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `trinhdohv` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `vitriungvien` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `ungvien`
+--
+
+INSERT INTO `ungvien` (`mauv`, `hoten`, `ngaysinh`, `cmnd`, `gioitinh`, `diachi`, `sdt`, `email`, `trinhdohv`, `vitriungvien`) VALUES
+(1, 'Huỳnh Nhật Lâm', '2008-01-01', 123456789, 'm', '17 Ngô Quyền, Hà Nội', 909123456, 'nhatlam@gmail.com', 'Trên đại học', 'Nhân viên Marketing');
 
 --
 -- Indexes for dumped tables
@@ -216,6 +260,12 @@ ALTER TABLE `tintuc`
   ADD KEY `fk_manv_dangtin` (`nguoidang`);
 
 --
+-- Indexes for table `ungvien`
+--
+ALTER TABLE `ungvien`
+  ADD PRIMARY KEY (`mauv`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -229,13 +279,13 @@ ALTER TABLE `chucvu`
 -- AUTO_INCREMENT for table `luong`
 --
 ALTER TABLE `luong`
-  MODIFY `maluong` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `maluong` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  MODIFY `manv` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `manv` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `phieuluong`
@@ -254,6 +304,12 @@ ALTER TABLE `phongban`
 --
 ALTER TABLE `tintuc`
   MODIFY `matin` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ungvien`
+--
+ALTER TABLE `ungvien`
+  MODIFY `mauv` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

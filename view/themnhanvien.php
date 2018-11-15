@@ -3,8 +3,30 @@
     if(!isset($_SESSION['username'])) {
         header('location: ./login.php');
     }
+    include("../controller/c_nhanvien.php");
+    $nhanvien = new nhanvien_controller();
+    $manv = null;
+    $hoten = null;
+    $diachi = null;
+    $ngaysinh = null;
+    $sdt = null;
+    $password = null;
+    $file_name = null;
+
+    if(isset($_POST['btnThemNV'])) {
+        $hoten = $_POST['hoten'];
+        $gioitinh = $_POST['gioitinh'];
+        $chucvu = $_POST['chucvu'];
+        $phongban = $_POST['phongban'];
+        $diachi = $_POST['diachi'];
+        $ngaysinh = $_POST['ngaysinh'];
+        $sdt = $_POST['sdt'];
+        $password = $_POST['password'];
+        $file_name = $_FILES['loadimages']['name'];
+        $file_tmpname = $_FILES['loadimages']['tmp_name'];
+        $nhanvien->themNhanVien($hoten, $gioitinh, $chucvu, $phongban, $diachi, $ngaysinh, $sdt, $password, $file_name, $file_tmpname);
+    }
     
-    include("../model/m_themnhanvien.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +49,9 @@
     <!-- KẾT THÚC NAVBAR -->
 
     <div class="container-fluid">
+        <div class="row justify-content-center">
+            <?= $nhanvien->thongbao; ?>
+        </div>
         <div class="row justify-content-center">
             <div class="card card-themnhanvien">
                 <h5 class="card-header bg-primary">

@@ -21,6 +21,11 @@
     background-size: cover;
 }
 
+.infoavatar {
+    width: 450px;
+    height: 400px;
+}
+
 .fa-camera-retro {
     position: absolute;
     left: -35px;

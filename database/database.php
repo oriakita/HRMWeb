@@ -21,19 +21,28 @@
             $this->_sql = $sql;
         }
 
-        public function runQuery() {
+        public function runQuery() 
+        {
             mysqli_query($this->conn,$this->_sql);
         }
         
-        public function countRows() {
+        public function countRows() 
+        {
             $query = mysqli_query($this->conn,$this->_sql);
             $result = mysqli_num_rows($query);
             return $result;
         }
 
-        public function loadRowArray() {
+        public function loadRowArray() 
+        {
             $query = mysqli_query($this->conn,$this->_sql);
             return $row = mysqli_fetch_all($query);
+        }
+
+        public function loadOneRowArry()
+        {
+            $query = mysqli_query($this->conn,$this->_sql);
+            return mysqli_fetch_row($query);
         }
 
     }

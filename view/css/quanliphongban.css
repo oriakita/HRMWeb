@@ -30,3 +30,7 @@
 .modal-body .row, .div-message {
     margin-top: 10px;
 }
+
+.mybtn a {
+    color: white;
+}

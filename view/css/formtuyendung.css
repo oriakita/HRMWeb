@@ -32,3 +32,25 @@ body {
 #btnGuiTuyenDung {
     margin-left: 30px;
 }
+
+/* PHẦN CSS CỦA dangkythanhcong.php */
+
+.r1 {
+    margin-top: 150px;
+}
+
+.fa-check-circle {
+    color: #04aa04;
+}
+
+.r2 p {
+    font-size: 50pt;
+    font-weight: 600;
+    color: #15fa15;
+}
+
+.r3 p, .r3 a {
+    font-size: 20pt;
+    font-weight: 500;
+    color: white;
+}

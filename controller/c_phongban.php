@@ -17,16 +17,25 @@
             else 
             {
                 $truyvan = new truyvanphongban();
-                if($truyvan->daco($tenpb, $truongphong)===0) 
+                if($truyvan->daCoPhongBan($tenpb) > 0) 
                 {
-                    $truyvan->insertPhongBan($mapb, $tenpb, $truongphong);
-                    $this->thongbao = "Thêm phòng ban thành công";
-                    $this->success = $this->thongbao;
-                }
-                else
-                {
-                    $this->thongbao = "Trùng đã tồn tại phòng ban hoặc trưởng phòng này. Thêm thất bại!";
+                    $this->thongbao = "Đã tồn tại phòng ban '$tenpb' này. Thêm thất bại! (T_T) ";
                     $this->error = $this->thongbao;
+                    
+                }
+                else 
+                {
+                    if($truyvan->daCoTruongPhong($truongphong) > 0) 
+                    {
+                        $this->thongbao ="Mã NV $truongphong đã là trưởng phòng. Thêm thất bại! (T_T) ";
+                        $this->error = $this->thongbao;
+                    }
+                    else 
+                    {
+                        $truyvan->insertPhongBan($mapb, $tenpb, $truongphong);
+                        $this->thongbao = "Thêm phòng ban thành công (^_^)!";
+                        $this->success = $this->thongbao;
+                    }
                 }
             }
         }
@@ -71,6 +80,36 @@
             $truyvan->selectAll();
             $this->num_rows = $truyvan->num_rows;
             return $truyvan->row;
+        }
+
+        public function suaPhongBan($mapb, $tenpb, $truongphong)
+        {
+            if($tenpb == "") 
+            {
+                $this->thongbao = "Tên phòng ban không được để trống!!!";
+                $this->error = $this->thongbao;
+            } 
+            else
+            {
+                $truyvan = new truyvanphongban();
+                if($truyvan->daCoPhongBan($mapb)===0 && $truyvan->daCoTruongPhong($truongphong)===0) 
+                {
+                    $truyvan->updatePhongBan($mapb, $tenpb, $truongphong);
+                    $this->thongbao = "Sửa phòng ban thành công (^_^)";
+                    $this->success = $this->thongbao;
+                }
+                else
+                {
+                    $this->thongbao = "Đã tồn tại phòng ban hoặc trưởng phòng này. Sửa thất bại! (T_T) ";
+                    $this->error = $this->thongbao;
+                }
+            }
+        }
+
+        public function xoaPhongBan($mapb)
+        {
+            $truyvan = new truyvanphongban();
+            $truyvan->deletePhongBan($mapb);
         }
     }
 ?>

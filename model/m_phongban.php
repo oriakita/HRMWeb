@@ -6,7 +6,7 @@
         var $row = null;
         var $num_rows = null;
 
-        public function insertPhongBan($mapb,$tenphongban,$trphong) 
+        public function insertPhongBan($mapb, $tenphongban, $trphong) 
         {   
             if($trphong == "") 
             {
@@ -20,10 +20,15 @@
             $this->runQuery();
         }
 
-        public function daco($tenphongban,$trphong) {
+        public function daCoPhongBan($tenphongban) {
             $sql1 = "SELECT mapb FROM phongban WHERE TenPB = '$tenphongban'; ";
-            $sql2 = "SELECT mapb FROM phongban WHERE trphong = '$trphong'; ";
             $this->setQuery($sql1);
+            return $this->countRows();
+        }
+
+        public function daCoTruongPhong($trphong) {
+            $sql2 = "SELECT mapb FROM phongban WHERE trphg = '$trphong'; ";
+            $this->setQuery($sql2);
             return $this->countRows();
         }
 
@@ -32,6 +37,27 @@
             $this->setQuery($sql);
             $this->row = $this->loadRowArray();
             $this->num_rows = $this->countRows();
+        }
+
+        public function updatePhongBan($mapb, $tenpb, $trphong)
+        {
+            if($trphong == "") 
+            {
+                $sql = "UPDATE phongban SET TenPB = '$tenpb' , trphg = null WHERE MAPB = '$mapb'; ";
+            }
+            else
+            {
+                $sql = "UPDATE phongban SET TenPB = '$tenpb' , trphg = '$trphong' WHERE MAPB = '$mapb'; ";
+            }
+            $this->setQuery($sql);
+            $this->runQuery();
+        }
+
+        public function deletePhongBan($mapb)
+        {
+            $sql = "DELETE FROM phongban WHERE MAPB = '$mapb'; ";
+            $this->setQuery($sql);
+            $this->runQuery();
         }
     }
 ?>
