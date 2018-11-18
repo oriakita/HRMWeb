@@ -3,6 +3,15 @@
     if(!isset($_SESSION['username'])) {
         header('location: ./login.php');
     } 
+    include("../controller/c_luong.php");
+    $luong = new luong_controller();
+    if(isset($_POST['btnTinhLuong']))
+    {
+        $manv = $_POST['manv'];
+        $mathang = "112018";
+        $luong->nhapLuong($manv,$mathang);
+        
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +79,7 @@
                                 
                             </tbody>
                         </table>
-                        <button type="submit" class="btn btn-primary" id="btnNhapLuong" name="btnNhapLuong">OK</button>
+                        
                     </div>
                 </div>
             </div>

@@ -30,5 +30,12 @@
             session_destroy();
             header("location:login.php");
         }
+
+        public function getRoleUser($sdt)
+        {
+            $truyvan = new truyvan();
+            $truyvan->loadRowUser($sdt);
+            return $truyvan->row;
+        }
     }
 ?>
