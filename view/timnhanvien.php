@@ -53,7 +53,7 @@
                                     <th class="col-3">Chức Vụ</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="mybodytable">
                                 <?php
                                     $row = $nhanvien->showNhanVien();
                                     foreach($row as $value)
@@ -97,6 +97,17 @@
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#search").keyup(function(){
+                var keyword = $('#search').val();
+                $.post("A_timnhanvien.php", {tukhoa: keyword}, function(data){
+                    // $('#datasearch').empty();
+                    $('#mybodytable').html(data);
+                })
+            })
+        })
+    </script>
 </body>
 
 </html>

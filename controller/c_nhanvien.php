@@ -50,5 +50,13 @@
             $this->num_rows = $truyvan->num_rows;
             return $truyvan->row;
         }
+
+        public function showNhanVienLikeKey($key)
+        {
+            $truyvan = new truyvannhanvien();
+            $truyvan->selectNhanVienLikeKey($key);
+            $this->num_rows = $truyvan->num_rows;
+            return $truyvan->row;
+        }
     }
 ?>

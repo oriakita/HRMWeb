@@ -42,5 +42,13 @@
             $this->row = $this->loadRowArray();
             $this->num_rows = $this->countRows();
         }
+
+        public function selectNhanVienLikeKey($key)
+        {
+            $sql = "SELECT * FROM `nhanvien` WHERE hoten LIKE '%$key%' ";
+            $this->setQuery($sql);
+            $this->row = $this->loadRowArray();
+            $this->num_rows = $this->countRows();
+        }
     }
 ?>
