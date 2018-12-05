@@ -35,9 +35,9 @@
             $this->row = $this->loadOneRowArry();
         }
 
-        public function selectNhanVienChamCong($mapb)
+        public function selectNhanVienChamCong()
         {
-            $sql = "SELECT nhanvien.manv, nhanvien.hoten, luong.ngaycong, luong.tangca, luong.vipham, luong.tongtien FROM nhanvien,luong WHERE nhanvien.mapb = '$mapb' ";
+            $sql = "SELECT nhanvien.manv, nhanvien.hoten, luong.ngaycong, luong.tangca, luong.vipham, luong.tongtien FROM nhanvien,luong ";
             $this->setQuery($sql);
             $this->row = $this->loadRowArray();
             $this->num_rows = $this->countRows();

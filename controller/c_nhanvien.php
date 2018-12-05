@@ -43,13 +43,12 @@
             return $truyvan->row;
         }
 
-        public function showNhanVienChamCong($mapb)
+        public function showNhanVienChamCong()
         {
             $truyvan = new truyvannhanvien();
-            $truyvan->selectNhanVienChamCong($mapb);
+            $truyvan->selectNhanVienChamCong();
             $this->num_rows = $truyvan->num_rows;
             return $truyvan->row;
-
         }
     }
 ?>

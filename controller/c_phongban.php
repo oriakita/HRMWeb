@@ -111,5 +111,26 @@
             $truyvan = new truyvanphongban();
             $truyvan->deletePhongBan($mapb);
         }
+
+        public function showNhanVienChamCong()
+        {
+            $truyvan = new truyvanphongban();
+            $truyvan->selectNhanVienChamCong();
+            $this->num_rows = $truyvan->num_rows;
+            return $truyvan->row;
+        }
+
+        public function showOneNhanVienChamCong($manv) {
+            $truyvan = new truyvanphongban();
+            $truyvan->selectOneNhanVienChamCong($manv);
+            $this->num_rows = $truyvan->num_rows;
+            return $truyvan->row;
+        }
+
+        public function nhapLuong($manv, $mathang, $ngaycong, $tangca, $vipham)
+        {
+            $truyvan = new truyvanphongban();
+            $truyvan->themLuongNhanVien($manv, $mathang, $ngaycong, $tangca, $vipham);
+        }
     }
 ?>

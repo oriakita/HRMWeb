@@ -59,5 +59,27 @@
             $this->setQuery($sql);
             $this->runQuery();
         }
+
+        public function selectNhanVienChamCong()
+        {
+            $sql = "SELECT nhanvien.manv, nhanvien.hoten, luong.ngaycong, luong.tangca, luong.vipham, luong.tongtien FROM nhanvien,luong WHERE nhanvien.manv = luong.manv";
+            $this->setQuery($sql);
+            $this->row = $this->loadRowArray();
+            $this->num_rows = $this->countRows();
+        }
+
+        public function selectOneNhanVienChamCong($manv) {
+            $sql = "SELECT ((l.ngaycong*(SELECT c.luongcb FROM chucvu AS c, nhanvien AS n WHERE n.manv = 6 AND n.macv = c.macv) + 
+            l.tangca*2*(SELECT c.luongcb FROM chucvu AS c, nhanvien AS n WHERE n.manv = 6 AND n.macv = c.macv))*(100-l.vipham)/100) AS tongtien, l.maluong, l.ngaycong, l.tangca, l.vipham, l.mathang, n.hoten FROM luong AS l, nhanvien AS n WHERE l.manv = $manv AND l.manv = n.manv";
+            $this->setQuery($sql);
+            $this->row = $this->loadRowArray();
+            $this->num_rows = $this->countRows();
+        }
+
+        public function themLuongNhanVien($manv, $mathang, $ngaycong, $tangca, $vipham) {
+            $sql = "UPDATE luong SET ngaycong = $ngaycong  , tangca = $tangca , vipham = $vipham  WHERE manv = $manv AND mathang = $mathang";
+            $this->setQuery($sql);
+            $this->runQuery();
+        }
     }
 ?>
