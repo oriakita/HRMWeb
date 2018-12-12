@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2018 at 05:30 AM
+-- Generation Time: Dec 07, 2018 at 01:57 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -56,7 +56,7 @@ CREATE TABLE `luong` (
   `maluong` int(10) NOT NULL,
   `ngaycong` int(2) NOT NULL,
   `tangca` int(2) NOT NULL,
-  `vipham` float(2,2) NOT NULL,
+  `vipham` int(10) NOT NULL,
   `tongtien` int(11) NOT NULL,
   `mathang` int(6) DEFAULT NULL,
   `maphieu` int(10) DEFAULT NULL,
@@ -68,7 +68,17 @@ CREATE TABLE `luong` (
 --
 
 INSERT INTO `luong` (`maluong`, `ngaycong`, `tangca`, `vipham`, `tongtien`, `mathang`, `maphieu`, `manv`) VALUES
-(2, 0, 0, 0.00, 0, 112018, NULL, 1);
+(4, 19, 2, 5, 0, 102018, NULL, 1),
+(5, 19, 3, 10, 0, 102018, NULL, 6),
+(6, 25, 3, 0, 0, 102018, NULL, 24),
+(7, 29, 1, 10, 0, 102018, NULL, 25),
+(8, 0, 0, 0, 0, 102018, NULL, 28),
+(9, 0, 0, 0, 0, 102018, NULL, 30),
+(10, 26, 2, 5, 0, 102018, NULL, 33),
+(11, 0, 0, 0, 0, 102018, NULL, 34),
+(12, 0, 0, 0, 0, 102018, NULL, 37),
+(13, 0, 0, 0, 0, 102018, NULL, 38),
+(14, 0, 0, 0, 0, 102018, NULL, 39);
 
 -- --------------------------------------------------------
 
@@ -99,7 +109,15 @@ INSERT INTO `nhanvien` (`manv`, `hoten`, `ngaysinh`, `gioitinh`, `diachi`, `sdt`
 (1, 'Huỳnh Nhật Hòa', '1997-01-18', 'm', '144/9 P14, Q11, TP.HCM', 987647814, NULL, NULL, '0', 0, '123456', 'images/nhanvien/avatar.png'),
 (6, 'test', '2018-11-08', 'm', '4 ABC', 123456, 2, 3, '0', 1, '123456', 'images/nhanvien/avatar.png'),
 (24, 'Nguyễn Thị A', '1982-12-01', 'f', '122 Cách Mạng Tháng 8, Quận 10, Hồ Chí Minh', 9876, 2, 1, '0', 1, '123', 'images/nhanvien/thaygiao.jpg'),
-(25, 'Nguyễn Thị Nhỏ', '2018-11-01', 'f', '123 Đường gì', 123, 6, 6, '0', 1, '123', 'images/nhanvien/Cao-Thuy-Linh.png');
+(25, 'Nguyễn Thị Nhỏ', '2018-11-01', 'f', '123 Đường gì', 123, 6, 6, '0', 1, '123', 'images/nhanvien/Cao-Thuy-Linh.png'),
+(28, 'Lê Thị Linh', '1996-05-01', 'f', '4 Ngô Thị Thu Minh, Tân Bình, Hồ chí Minh', 379170717, 3, 3, '0', 1, 'admin', 'images/nhanvien/2dog8.jpg'),
+(30, 'Jon Taylor', '1984-05-03', 'm', '7571 Woodlane Dr', 2147483647, 2, 1, '0', 1, 'user', 'images/nhanvien/5.jpg'),
+(33, 'Ngô Văn Tài', '2018-11-02', 'm', '14 Đường', 444455555, 1, 1, '0', 1, 'useruser', 'images/nhanvien/62.jpg'),
+(34, 'Daryl Brooks', '1984-12-01', 'm', '1432 Parker Rd', 1108712863, 3, 4, '0', 1, 'user81', 'images/nhanvien/81.jpg'),
+(37, 'Stacy Willis', '1994-02-07', 'f', '5940 Westheimer Rd', 909123001, 3, 2, '0', 1, 'user01', 'images/nhanvien/33.jpg'),
+(38, 'Tamara George', '1979-01-03', 'f', '5931 Golf Course Rd', 909123002, 1, 1, '0', 1, 'user02', 'images/nhanvien/27.jpg'),
+(39, 'Nhân Viên Mới', '2018-11-01', 'f', '15 Đường, Quận, Thành Phố', 909123010, 4, 4, '0', 1, 'user10', 'images/nhanvien/ilearn.jpg'),
+(41, 'Huỳnh Nam', '2018-12-20', 'm', '123 CMT8', 123321456, 3, 2, '0', 1, '123456', 'images/nhanvien/81.jpg');
 
 -- --------------------------------------------------------
 
@@ -199,7 +217,8 @@ CREATE TABLE `ungvien` (
 --
 
 INSERT INTO `ungvien` (`mauv`, `hoten`, `ngaysinh`, `cmnd`, `gioitinh`, `diachi`, `sdt`, `email`, `trinhdohv`, `vitriungvien`) VALUES
-(1, 'Huỳnh Nhật Lâm', '2008-01-01', 123456789, 'm', '17 Ngô Quyền, Hà Nội', 909123456, 'nhatlam@gmail.com', 'Trên đại học', 'Nhân viên Marketing');
+(1, 'Huỳnh Nhật Lâm', '2008-01-01', 123456789, 'm', '17 Ngô Quyền, Hà Nội', 909123456, 'nhatlam@gmail.com', 'Trên đại học', 'Nhân viên Marketing'),
+(2, 'Nguyễn Viết Khiêm', '1997-11-05', 291111899, 'f', '144/19 Bình Thới, Quận 11, Hồ Chí Minh', 123456789, 'khiem@gmail.com', 'Trên đại học', 'Nhân viên Marketing');
 
 --
 -- Indexes for dumped tables
@@ -279,13 +298,13 @@ ALTER TABLE `chucvu`
 -- AUTO_INCREMENT for table `luong`
 --
 ALTER TABLE `luong`
-  MODIFY `maluong` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `maluong` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  MODIFY `manv` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `manv` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `phieuluong`
